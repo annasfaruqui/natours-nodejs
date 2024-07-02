@@ -4,6 +4,16 @@ const Tour = require("../models/tourModel");
 const User = require("../models/userModel");
 const Booking = require("../models/bookingModel");
 
+exports.alerts = function (req, res, next) {
+  const { alert } = req.query;
+
+  if (alert === "booking")
+    res.locals.alert =
+      "Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediately, please come back later.";
+
+  next();
+};
+
 exports.getOverview = catchAsync(async function (req, res, next) {
   // 1) Get tour data from colletion
   const tours = await Tour.find();

@@ -3,6 +3,7 @@ import { login, logout } from "./login";
 import { displayMap } from "./leaflet";
 import { updateSettings } from "./updateSettings";
 import { bookTour } from "./stripe";
+import { showAlert } from "./alerts";
 
 // DOM ELEMENTS
 const map = document.getElementById("map");
@@ -11,6 +12,7 @@ const logoutBtn = document.querySelector(".nav__el--logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
 const bookBtn = document.getElementById("book-tour");
+const alertMessage = document.querySelector("body").dataset.alert;
 
 // Display the map if it exists
 if (map) {
@@ -73,3 +75,5 @@ if (bookBtn) {
     bookTour(tourId);
   });
 }
+
+if (alert) showAlert("success", alertMessage, 15);

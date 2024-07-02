@@ -11,7 +11,7 @@ html(lang="en")
       script(src="/js/bundle.js" defer)
       title Natours | #{title}
   
-  body
+  body(data-alert=`${alert?alert:""}`)
     // HEADER
     include _header
     
