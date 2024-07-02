@@ -9,7 +9,7 @@ const handlerFactory = require("./handlerFactory");
 const createBookingCheckout = async function (sessionData) {
   const tour = session.client_reference_id;
   const user = await User.findOne({ email: session.customer_email }).id;
-  const price = session.line_items.at(0).price_data.unit_amount;
+  const price = session.amount_total;
 
   await Booking.create({ tour, user, price });
 };
