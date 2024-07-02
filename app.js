@@ -9,10 +9,10 @@ const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
+const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
-
 const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
@@ -27,6 +27,17 @@ app.set("views", path.join(__dirname, "views"));
 
 // 1) GLOBAL MIDDLEWARES
 // NOTE: app.use() is used to call middleware functions.
+
+// Implement CORS
+app.use(cors());
+// Access-Conntrol-Allow-Origin *
+// api.natours.com, frontend @ natours.com
+// app.use(cors({
+//   origin: "https://www.natours.com"
+// }))
+
+app.options("*", cors());
+app.options("/api/v1/tours/:id", cors());
 
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
