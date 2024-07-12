@@ -11,5 +11,12 @@ block content
         .form__group.ma-bt-md
           label.form__label(for='password') Password
           input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group 
+          .test__credentials
+            p Demo email: &nbsp;
+              strong laura@example.com
+            p Demo password: &nbsp;
+              strong test1234
+
         .form__group
           button.btn.btn--green Login
