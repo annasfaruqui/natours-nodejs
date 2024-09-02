@@ -1,7 +1,7 @@
 {
   "name": "natours",
   "version": "1.0.0",
-  "description": "Laerning Node.js, Express, and MongoDB",
+  "description": "Learning Node.js, Express, and MongoDB",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
